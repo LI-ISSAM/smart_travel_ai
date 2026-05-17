@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- ═══ HEADER ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:text="Mon Avatar"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- Statut -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:text="Prêt"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"/>
+
+    <!-- ═══ VIDEO AVATAR ═══ -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F8F8F8">
+
+        <!-- VideoView pour lire la vidéo D-ID -->
+        <VideoView
+            android:id="@+id/videoAvatar"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"/>
+
+        <!-- Photo statique quand pas de vidéo -->
+        <ImageView
+            android:id="@+id/ivAvatarStatic"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <!-- Loading spinner -->
+        <ProgressBar
+            android:id="@+id/progressAvatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- ═══ ZONE TEXTE ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvAvatarSpeech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bonjour ! Que voulez-vous que je dise ?"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:paddingBottom="12dp"/>
+
+        <!-- Champ texte -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ce que l'avatar doit dire..."
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxStrokeColor="#CCCCCC"
+            app:hintTextColor="#999999">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAvatarText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Boutons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <!-- Bouton Micro -->
+            <ImageButton
+                android:id="@+id/btnAvatarMic"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@android:drawable/ic_btn_speak_now"
+                android:background="@drawable/circle_mic_bg"
+                android:layout_marginEnd="16dp"
+                android:padding="12dp"
+                android:contentDescription="Micro"/>
+
+            <!-- Bouton Parler -->
+            <Button
+                android:id="@+id/btnSpeak"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="▶ Faire parler l'avatar"
+                android:textSize="14sp"
+                android:backgroundTint="#1A1A2E"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="#000000"
+        app:itemTextColor="#000000"
+        app:labelVisibilityMode="labeled"
+        app:elevation="0dp"/>
+
+</LinearLayout>

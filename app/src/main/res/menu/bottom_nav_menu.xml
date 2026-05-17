@@ -1,0 +1,13 @@
+<!--
+    ═══════════════════════════════════════════════════════
+    bottom_nav_menu.xml  — VERSION MISE À JOUR
+    Ajout : nav_scan  (Scan & Découvrir)
+    ═══════════════════════════════════════════════════════
+ -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_explore" android:icon="@android:drawable/ic_menu_mapmode" android:title="Explorer"/>
+    <item android:id="@+id/nav_chat" android:icon="@android:drawable/ic_menu_send" android:title="Chat IA"/>
+    <item android:id="@+id/nav_scan" android:icon="@android:drawable/ic_menu_camera" android:title="Scanner"/>
+    <item android:id="@+id/nav_avatar" android:icon="@android:drawable/ic_menu_help" android:title="Guide IA"/>
+    <item android:id="@+id/nav_journal" android:icon="@android:drawable/ic_menu_agenda" android:title="Journal"/>
+</menu>

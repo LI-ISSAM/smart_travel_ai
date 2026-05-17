@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- ═══ HEADER ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <!-- Bouton retour -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="←"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_marginEnd="12dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Guide"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvGuideStatus"
+                android:text="Votre assistant personnel"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Séparateur sous header -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"/>
+
+    <!-- ═══ CONTENU PRINCIPAL ═══ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Avatar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <!-- VideoView avatar -->
+                <VideoView
+                    android:id="@+id/videoGuideAvatar"
+                    android:layout_width="160dp"
+                    android:layout_height="1600dp"
+                    android:visibility="gone"/>
+
+                <!-- Photo statique -->
+                <ImageView
+                    android:id="@+id/ivGuideStatic"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher_foreground"
+                    android:background="@android:drawable/btn_default"
+                    android:padding="4dp"/>
+
+                <!-- Loading -->
+                <ProgressBar
+                    android:id="@+id/progressGuide"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp"/>
+
+                <!-- Bulle de parole -->
+                <TextView
+                    android:id="@+id/tvAvatarSpeech"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bonjour ! Je suis votre guide. Choisissez un sujet ou posez-moi une question !"
+                    android:textColor="#222222"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:lineSpacingExtra="4dp"/>
+
+            </LinearLayout>
+
+            <!-- Séparateur -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F0F0F0"
+                android:layout_marginVertical="16dp"/>
+
+            <!-- ═══ BOUTONS GUIDE RAPIDE ═══ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Que voulez-vous savoir ?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Bouton 1 -->
+            <Button
+                android:id="@+id/btnGuideExplore"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text=" Comment explorer les lieux ?"
+                android:textSize="13sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <!-- Bouton 2 -->
+            <Button
+                android:id="@+id/btnGuideChat"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text=" Comment utiliser le Chat IA ?"
+                android:textSize="13sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <!-- Bouton 3 -->
+            <Button
+                android:id="@+id/btnGuideMic"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text=" Comment utiliser le micro ?"
+                android:textSize="13sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <!-- Bouton 4 -->
+            <Button
+                android:id="@+id/btnGuideProfile"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="  Comment gérer mon profil ?"
+                android:textSize="13sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <!-- Séparateur -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F0F0F0"
+                android:layout_marginVertical="16dp"/>
+
+            <!-- ═══ ZONE QUESTION LIBRE ═══ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ou posez votre propre question :"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="12dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ═══ BARRE D'ENTRÉE ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Bouton Micro -->
+            <ImageButton
+                android:id="@+id/btnGuideMicInput"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@android:drawable/ic_btn_speak_now"
+                android:background="@drawable/circle_mic_bg"
+                android:contentDescription="Microphone"
+                android:layout_marginEnd="8dp"
+                android:padding="9dp"/>
+
+            <!-- Champ texte -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Votre question..."
+                app:boxCornerRadiusTopStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusBottomEnd="28dp"
+                app:boxStrokeColor="#CCCCCC"
+                app:boxStrokeWidth="1dp"
+                app:hintTextColor="#999999">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGuideQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:maxLines="3"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="14sp"
+                    android:textColor="#222222"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Bouton Envoyer -->
+            <ImageButton
+                android:id="@+id/btnGuideSend"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@android:drawable/ic_menu_send"
+                android:background="@drawable/circle_send_bg"
+                android:contentDescription="Envoyer"
+                android:layout_marginStart="8dp"
+                android:padding="9dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemIconTint="#000000"
+        app:itemTextColor="#000000"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>

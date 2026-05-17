@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- HEADER — Aligné avec MainActivity (blanc, élevé)       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Scan &amp; Découvrir"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Prenez en photo un lieu ou plat"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CONTENU DÉFILABLE                                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <ScrollView
+        android:id="@+id/scrollResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ═══ ZONE APERÇU IMAGE ═══ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- Placeholder (affiché avant toute photo) -->
+                <LinearLayout
+                    android:id="@+id/layoutPlaceholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#F5F5F5">
+
+                    <TextView
+                        android:textSize="52sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="Aucune photo sélectionnée"
+                        android:textColor="#888888"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:text="Utilisez les boutons ci-dessous"
+                        android:textColor="#BBBBBB"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Aperçu de la photo prise/choisie -->
+                <ImageView
+                    android:id="@+id/ivScanPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- ═══ BOUTONS CAMÉRA / GALERIE ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <!-- Bouton Appareil Photo -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageButton
+                        android:id="@+id/btnCamera"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@android:drawable/ic_menu_camera"
+                        android:background="#000000"
+                        android:padding="14dp"
+                        android:contentDescription="Prendre une photo"
+                        android:backgroundTint="#000000"/>
+
+                    <TextView
+                        android:text="Caméra"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"/>
+                </LinearLayout>
+
+                <!-- Séparateur -->
+                <TextView
+                    android:text="ou"
+                    android:textColor="#AAAAAA"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"/>
+
+                <!-- Bouton Galerie -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp">
+
+                    <ImageButton
+                        android:id="@+id/btnGallery"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        android:background="#333333"
+                        android:padding="14dp"
+                        android:contentDescription="Choisir depuis la galerie"
+                        android:backgroundTint="#333333"/>
+
+                    <TextView
+                        android:text="Galerie"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ═══ BOUTON ANALYSER ═══ -->
+            <Button
+                android:id="@+id/btnAnalyze"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Analyser cette photo"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="#000000"
+                android:enabled="false"
+                android:alpha="0.4"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- ═══ BARRE DE CHARGEMENT ═══ -->
+            <ProgressBar
+                android:id="@+id/scanProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- ═══ RÉSULTAT IA (NOIR ET BLANC) ═══ -->
+            <LinearLayout
+                android:id="@+id/layoutResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Badge confiance - fond noir, texte blanc -->
+                <TextView
+                    android:id="@+id/tvConfidence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#000000"/>
+
+                <!-- Carte résultat principal - fond blanc, texte noir -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Catégorie -->
+                        <TextView
+                            android:id="@+id/tvResultCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#666666"
+                            android:textSize="12sp"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1"
+                            android:layout_marginBottom="6dp"/>
+
+                        <!-- Nom du lieu / plat -->
+                        <TextView
+                            android:id="@+id/tvResultName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Séparateur noir -->
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="3dp"
+                            android:background="#000000"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Description -->
+                        <TextView
+                            android:id="@+id/tvResultDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#222222"
+                            android:textSize="14sp"
+                            android:lineSpacingMultiplier="1.5"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Tips - fond gris clair, texte noir -->
+                        <TextView
+                            android:id="@+id/tvResultTips"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#222222"
+                            android:textSize="13sp"
+                            android:background="#F5F5F5"
+                            android:padding="12dp"
+                            android:lineSpacingMultiplier="1.4"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Bouton Voir sur la carte -->
+                <Button
+                    android:id="@+id/btnSeeOnMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Voir sur la carte"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:backgroundTint="#F0F0F0"
+                    android:visibility="gone"
+                    android:layout_marginBottom="16dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemIconTint="#000000"
+        app:itemTextColor="#000000"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

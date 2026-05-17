@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868972789527",
+    "project_id": "smarttravelai-c252a",
+    "storage_bucket": "smarttravelai-c252a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868972789527:android:8b5c66dcb96afe244cc152",
+        "android_client_info": {
+          "package_name": "com.example.smart_travel_ai_litimi_issam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm7FcZ1Ho4Ac1oz_hqZrgN1Qkkj6ZkdYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

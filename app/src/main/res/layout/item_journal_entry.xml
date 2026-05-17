@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Photo du lieu (optionnelle) -->
+        <ImageView
+            android:id="@+id/ivEntryPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:background="#F0F0F0"
+            android:visibility="gone"/>
+
+        <!-- Contenu de la carte -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Ligne header : date + bouton supprimer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvEntryDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"/>
+
+                <ImageButton
+                    android:id="@+id/btnDeleteEntry"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Supprimer"
+                    android:padding="4dp"
+                    app:tint="#999999" />
+            </LinearLayout>
+
+            <!-- Nom du lieu -->
+            <TextView
+                android:id="@+id/tvEntryPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Note étoiles -->
+            <TextView
+                android:id="@+id/tvEntryRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Séparateur -->
+            <View
+                android:layout_width="32dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Narration générée par l'IA -->
+            <TextView
+                android:id="@+id/tvEntryNarrative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.4"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

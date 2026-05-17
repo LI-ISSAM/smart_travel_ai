@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Smart_Travel_AI_LITIMI_ISSAM" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#000000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#333333</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#000000</item>
+
+        <!-- Text color in fields -->
+        <item name="colorOnSurface">#000000</item>
+        <item name="colorOutline">#000000</item>
+    </style>
+
+    <style name="Theme.Smart_Travel_AI_LITIMI_ISSAM" parent="Base.Theme.Smart_Travel_AI_LITIMI_ISSAM" />
+</resources>
