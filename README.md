@@ -41,7 +41,7 @@ Smart Travel AI est une application mobile Android complète qui combine **carto
            │
 ┌──────────▼──────────┐    ┌───────────────────────────┐
 │   MongoDB local     │    │   Ollama (LLaMA 3.2)       │
-│   port 27017        │    │   même réseau Wi-Fi        │
+│   port 27017        │    │            
 └─────────────────────┘    └───────────────────────────┘
 ```
 
